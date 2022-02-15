@@ -9,12 +9,12 @@ import { VerifyRegistration } from '../tasks/VerifyRegistration';
 Given(
     '{actor} is on the login page', async (actor: Actor) =>
         await actor.attemptsTo(
-            Navigate.to('https://laymui-login-project.vercel.app/'),
+            Navigate.to('https://laymui-login-project.vercel.app/login'),
         )
 );
 
 Given(
-    '{pronoun} wants to register a new account', 
+    '{actor} wants to register a new account', 
     async (actor: Actor) =>
         await actor.attemptsTo(NavigateTo.registerNewAccount())
 )

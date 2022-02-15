@@ -8,7 +8,7 @@ Feature: Login Authentication
         And Tara has registered an account
             | firstname | lastname | username | password |
             | Tara      | Tan      | taratan  | asdfghjk |
-
+    @test
     Scenario Outline: Able to login with correct username and password
         When she logs in using correct "<username>" and "<password>"
         Then she should able to login

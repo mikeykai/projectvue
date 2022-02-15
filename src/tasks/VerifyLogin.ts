@@ -13,7 +13,7 @@ export class VerifyLogin {
                 PortalNotify.successMessage(),
                 isVisible()
             ),
-            Ensure.that(Text.of(PortalNotify.successMessage()), includes('logged in with Vue + Vuex & JWT!!')),
+            Ensure.that(Text.of(PortalNotify.successMessage()), includes("You're logged in with Vue + Vuex & JWT!!")),
         )
 
     static failed = () =>

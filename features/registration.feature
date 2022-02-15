@@ -6,8 +6,8 @@ Feature: Register New Account
 
     Background:
         Given Tara is on the login page
-        And she wants to register a new account
-    @test
+        And Tara wants to register a new account
+
     Scenario Outline: Able to register an account
         When she register using the credentials
             | firstname | lastname | username | password |

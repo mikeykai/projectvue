@@ -44,7 +44,8 @@ When(
         )
 )
 
-Then('{pronoun} should able to login',
+Then(
+    '{pronoun} should able to login',
     async (actor: Actor) => {
         await actor.attemptsTo(
             VerifyLogin.isSuccessful(),
