@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { DataTable, Given, Then, When } from '@cucumber/cucumber';
 import { Actor } from '@serenity-js/core';
 import { Navigate } from '@serenity-js/webdriverio';
@@ -6,10 +7,14 @@ import { NavigateTo } from '../tasks/NavigateTo';
 import { Registration } from '../tasks/Registration';
 import { VerifyRegistration } from '../tasks/VerifyRegistration';
 
+if (!process.env.CIRCLECI) {
+    require('dotenv').config()
+}
+
 Given(
     '{actor} is on the login page', async (actor: Actor) =>
         await actor.attemptsTo(
-            Navigate.to('https://laymui-login-project.vercel.app/login'),
+            Navigate.to(process.env.PORTAL_BASE_URL),
         )
 );
 

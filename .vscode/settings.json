@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["firstname", "lastname", "testid", "Vuex"]
+  "cSpell.words": [
+    "chromedriver",
+    "CIRCLECI",
+    "firstname",
+    "lastname",
+    "testid",
+    "Vuex",
+    "wdio"
+  ]
 }
