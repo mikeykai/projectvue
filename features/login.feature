@@ -9,20 +9,20 @@ Feature: Login Authentication
             | firstname | lastname | username | password |
             | Tara      | Tan      | taratan  | asdfghjk |
 
-    @test
+
     Scenario Outline: Able to login with correct username and password
         When she logs in using correct credentials
             | username | password |
             | taratan  | asdfghjk |
         Then she should able to login
-
-
+    @test
     Scenario Outline: Unable to login with incorrect username and password
         When she logs in using incorrect credentials
-        Then she should not able to login
-        Examples:
             | username | password |
             | taratan  | 000      |
+        Then she should not able to login
+
+
 
 
 

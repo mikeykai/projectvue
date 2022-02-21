@@ -11,11 +11,10 @@ export const PortalNotify = {
         Target.the('delete button').located(
             by.css('a[text danger]')
         ),
-
+           
     logoutAccount: () =>
         Target.the('logout button').located(
-            by.css('a[/login]')
-        ),
-            
+            (by.css('div div div div div p a'))
+        )
 }
 

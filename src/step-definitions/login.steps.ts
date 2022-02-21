@@ -63,3 +63,21 @@ Then(
         )
     })
 
+When(
+    '{pronoun} logs in using incorrect credentials',
+    async (actor: Actor,table: DataTable) => {
+        const username = table.hashes()[0].username
+        const password = table.hashes()[0].password
+        await actor.attemptsTo(
+            Login.using(username, password)
+        )
+    }
+)
+    
+Then(
+    '{pronoun} should not able to login', { timeout: 5000000 },
+    async (actor: Actor) => {
+        await actor.attemptsTo(
+            VerifyLogin.failed(),
+        )
+    })
