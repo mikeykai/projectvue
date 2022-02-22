@@ -4,6 +4,7 @@ import { Actor, Question, TakeNote } from '@serenity-js/core';
 import { Navigate } from '@serenity-js/webdriverio';
 
 import { Login } from '../tasks/Login';
+import { Logout } from '../tasks/Logout';
 import { NavigateTo } from '../tasks/NavigateTo';
 import { Registration } from '../tasks/Registration';
 import { VerifyLogin } from '../tasks/VerifyLogin';
@@ -60,6 +61,8 @@ Then(
     async (actor: Actor) => {
         await actor.attemptsTo(
             VerifyLogin.isSuccessful(),
+            Logout.fromPortal(),
+            VerifyLogin.backToLogin(),
         )
     })
 
