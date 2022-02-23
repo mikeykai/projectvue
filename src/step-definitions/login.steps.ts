@@ -9,8 +9,6 @@ import { NavigateTo } from '../tasks/NavigateTo';
 import { Registration } from '../tasks/Registration';
 import { VerifyLogin } from '../tasks/VerifyLogin';
 
-
-
 Given(
     '{actor} is on login page', async (actor: Actor) =>
         await actor.attemptsTo(
@@ -45,11 +43,11 @@ Given(
 
 When(
     '{pronoun} logs in using correct credentials',
-    async (actor: Actor,table: DataTable) => {
+    async (actor: Actor) => {
         const username = await Note.of('username').answeredBy(actor)
         const password = await Note.of('password').answeredBy(actor)
-       // const username = table.hashes()[0].username
-       // const password = table.hashes()[0].password
+        // const username = table.hashes()[0].username
+        // const password = table.hashes()[0].password
         await actor.attemptsTo(
             Login.using(`${username}`, `${password}`)
         )
