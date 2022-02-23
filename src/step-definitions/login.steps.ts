@@ -57,8 +57,6 @@ Then(
     async (actor: Actor) => {
         await actor.attemptsTo(
             VerifyLogin.isSuccessful(),
-            Logout.fromPortal(),
-            VerifyLogin.backToLogin(),
         )
     })
 
