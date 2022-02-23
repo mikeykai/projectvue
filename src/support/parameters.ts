@@ -1,6 +1,10 @@
 import { defineParameterType } from '@cucumber/cucumber';
 import { actorCalled, actorInTheSpotlight } from '@serenity-js/core';
 
+if (!process.env.CIRCLECI) {
+  require('dotenv').config()
+}
+
 defineParameterType({
     regexp: /[A-Z][a-z]+/,
     transformer(name: string) {

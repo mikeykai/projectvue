@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { DataTable, Given, Then, When } from '@cucumber/cucumber';
-import { Actor, Question, TakeNote } from '@serenity-js/core';
+import { Actor, Note, Question, TakeNote } from '@serenity-js/core';
 import { Navigate } from '@serenity-js/webdriverio';
 
 import { Login } from '../tasks/Login';
@@ -9,9 +9,7 @@ import { NavigateTo } from '../tasks/NavigateTo';
 import { Registration } from '../tasks/Registration';
 import { VerifyLogin } from '../tasks/VerifyLogin';
 
-if (!process.env.CIRCLECI) {
-    require('dotenv').config()
-}
+
 
 Given(
     '{actor} is on login page', async (actor: Actor) =>
@@ -48,10 +46,12 @@ Given(
 When(
     '{pronoun} logs in using correct credentials',
     async (actor: Actor,table: DataTable) => {
-        const username = table.hashes()[0].username
-        const password = table.hashes()[0].password
+        const username = await Note.of('username').answeredBy(actor)
+        const password = await Note.of('password').answeredBy(actor)
+       // const username = table.hashes()[0].username
+       // const password = table.hashes()[0].password
         await actor.attemptsTo(
-            Login.using(username, password)
+            Login.using(`${username}`, `${password}`)
         )
     }
 )
