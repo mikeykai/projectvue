@@ -53,7 +53,7 @@ When(
 )
 
 Then(
-    '{pronoun} should able to login', { timeout: 5000000 },
+    '{pronoun} should able to login', 
     async (actor: Actor) => {
         await actor.attemptsTo(
             VerifyLogin.isSuccessful(),
@@ -74,7 +74,7 @@ When(
 )
     
 Then(
-    '{pronoun} should not able to login', { timeout: 5000000 },
+    '{pronoun} should not able to login', 
     async (actor: Actor) => {
         await actor.attemptsTo(
             VerifyLogin.failed(),
