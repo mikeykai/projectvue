@@ -46,8 +46,6 @@ When(
     async (actor: Actor) => {
         const username = await Note.of('username').answeredBy(actor)
         const password = await Note.of('password').answeredBy(actor)
-        // const username = table.hashes()[0].username
-        // const password = table.hashes()[0].password
         await actor.attemptsTo(
             Login.using(`${username}`, `${password}`)
         )

@@ -10,7 +10,8 @@
     "test:execute": "wdio wdio.conf.ts",
     "test:report": "serenity-bdd run --features ./features",
     "lint": "eslint --ext ts --config .eslintrc.js .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "report": "start target/site/serenity/index.html"
   },
   "repository": {
     "type": "git",
