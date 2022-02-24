@@ -7,10 +7,6 @@ import { NavigateTo } from '../tasks/NavigateTo';
 import { Registration } from '../tasks/Registration';
 import { VerifyRegistration } from '../tasks/VerifyRegistration';
 
-if (!process.env.CIRCLECI) {
-    require('dotenv').config()
-}
-
 Given(
     '{actor} is on the login page', async (actor: Actor) =>
         await actor.attemptsTo(
